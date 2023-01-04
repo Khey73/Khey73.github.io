@@ -52,7 +52,36 @@ main{
     height: 70%;
     background-color: var(--white);
     border: 2px solid var(--black);
+    overflow: auto;
+}
+
+.contenedor .lista .parrafos{
+    border-bottom: 1px solid var(--black);
+    padding: 10px;
+    margin: 0;
+    display: block;
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--black);
+    transition: all .3s;
+}
+.contenedor .lista .parrafos:hover{
+    background-color: var(--hospital-green);
+    
 }
 
 
 
+/* Boton contactame */
+
+#Contactame{
+    background-color: var(--text-input-field);
+    border: 3px solid var(--hospital-green);
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding: 15px 25px;
+    font-size: var(--md);
+    font-family: 'Quicksand', sans-serif;
+
+}
