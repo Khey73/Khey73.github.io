@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- title and css -->
     <title>Portafolio - Miguel Silva Rubio</title>
     <link rel="stylesheet" href="css/styles.css">
@@ -24,7 +26,40 @@
                 
             </div>
             <input type="button" id="Contactame" value="Contactame">
+            
         </div>
+        
+        <!--  Ventana pop contacto -->
+    
+        <div class="fondoVentana"> 
+            <div class="ventanaContacto">   
+                <span class="material-symbols-outlined" id="cerrar">
+                    close
+                    </span>
+                <h1 class="tituloContacto">Formas de Contacto</h1>
+
+                <div class="contenedorImagenes"> 
+                    <a href="" id="whatsLogoA"><img src="img/WhatssAppLogo.png" alt="WhatsApp"></a>
+                    <a href="" id="platziLogoa"><img id="logoPlatzi" src="img/platziLogo.jpg" alt="PlatziProfile"> </a>
+                </div>
+
+                <p>o</p>
+                
+                <h2 class="tituloForm">Mandame un mensaje</h2>
+                
+                <form action="" id="formulario">
+                    <label for="nombre">Nombre: </label>
+                    <input type="text" placeholder="Ingresa tu nombre">
+
+                    <label for="tel">Telefono: </label>
+                    <input type="text" id="tel" placeholder="Ingresa tu nombre">
+
+                    <label for="mensaje">Mensaje</label>
+                    <textarea name="" id="mensaje" cols="30" rows="10"></textarea>
+                </form>
+            </div>
+        </div>
+        
     </main>
 <script src="index.js"></script>
 </body>
