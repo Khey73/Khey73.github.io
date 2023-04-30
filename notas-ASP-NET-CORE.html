@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas de ASP .NET Core</title>
+    <!-- Font Family Robot -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            --font: font-family: 'Roboto', sans-serif;
+        }
+        h2{
+            text-align: center;
+            font-weight: 900;
+            font-size: 40px;
+            color: red;
+        }
+        h3{
+            margin: 0 auto;
+            width: 85%;
+        }
+        p, ol{
+            width: 85%;
+            border: 1px solid black;
+            padding: 20px;
+            margin: 30px auto;
+            font-weight: 400;
+            box-shadow: 1px 1px 1px black;
+            
+        }
+
+        h3{
+            margin-top: 70px;
+            color: rgb(252, 134, 0);
+        }
+        img{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>ASP .NET Core </h2>
+    <p>ASP .NET Core es un Framework basado en 3 lenguajes (Visual Basic, f# y c#) que te
+        permite desarrollar aplicaciones Web. este Framework utiliza el patron MVC (Modelo
+        , Vista, Controlador);
+    </p>
+
+    <h3>¿Que es el Modelo de MVC?</h3>
+    <p>MODELO: En el patrón de diseño Modelo-Vista-Controlador (MVC), la "data" 
+		se refiere a los datos que se utilizan en la aplicación y que son 
+		gestionados por el modelo. El modelo es la parte del patrón MVC que se 
+		encarga de la lógica de la aplicación y de la gestión de los datos.
+    </p>
+    <h3>¿Que son las Vistas MVC?</h3>
+    <p>
+        Vistas: Es la parte visual de nuestra aplicacion! lo que vera el usuario
+    </p>
+    <h3>¿Que son los Controladores de MVC?</h3>
+    <p>
+        Controladores: el controlador se encarga de actualizar los modelos y le pasa los
+        datos a la vista para que muestre el contenido final al usuario.
+
+        (es el que responde a las acciones de los usuarios! como en botones,
+         el boton recibira el dato
+        evento del usuario y realizara algo al respecto)
+    </p>
+
+    <hr/>
+    <h3>WEB APIs</h3>
+    <p>Usamos WEB APIs cuando no queremos generar interfaces de usuario, se usa cuando
+        solo queremos manejar la parte de la logica. esto es utilcuando tenemos diferentes
+        Frontends
+
+        entonces, la WEB API funciona como un backend el cual puede ser consumido por diferentes frontend! (fetch).
+    </p>
+    <p>
+        un WEB api en terminos de MVC elimina la vista!, quedandonos solo con Modelos y Controladores, la Vista (la creacion 
+        de la interfaz de usuario) queda delegada a los Frontends
+    </p>
+    <p>
+        ***los WEB APIs son utiles cuando necesitas que tu app de ASP NET core se encargue de manejar peticiones 
+            HTTP sin tener la responsabilidad de manejar la interfaz
+            de usuario! (HTML y CSS)****
+    </p>
+
+    <h2>Pasando datos del controlador a una vista</h2>
+    <h3>ViewBag</h3>
+    <p> 
+        Es un objeto el cual te va a permitir pasar informacion 
+        desde el controlador hacia la vista
+        
+    </p>
+    <ol>
+        <li>Agrega esta informacion a la accion del controlador: ViewBag
+            es deltipo DINAMICO,puedes utilizar cualquier propiedad (nombre,edad,desripccion)
+            , viewBag te permitre utilizar cualquie rpropiedad sin problema
+        </li>
+        <img src="./ViewBag.jpg" />
+        <li>
+            Ve hacia el view ( en este caso index.cshtml) y usa 
+            la siguiente sintaxis
+            nota: el @ te permite pasar codigo de C# en el HTML, en este caso...
+
+            <br>
+            estas llamando al Objeto ViewBag a su propiedad Nombre, la cual definiste
+            en el controllador, en el apartadod e la accion
+        </li>
+        <img src="/ViewBag2.jpg"/>
+    </ol>
+    <p>
+        El viewBag te permite SOLAMENTE para pasar informacion del controlador a la vista
+        y aparte NO ES FUERTEMENTE TIPADO!, si te equivocas manualmente al escribir la propiedad...
+        no lanzara error pero no copilara nada en el HTML
+    </p>
+
+    <h3>2.- Modelos fuertemente Tipados</h3>
+    <p>
+        Es otra manera de mandar datos de un controlador a una vista, esta es usando Modelos fuertemente tipados
+    </p>
+    <ol>
+        <li> pasale un segundo parametro a la funcion View del return de la Accion
+            <br>
+            el primer parametro indica la vista a la que se esta comunicando (Index.cshtml)
+            el segundoparametro indica el dato que va a recibir el Modelo declarado dentro de esa vista
+
+        </li>
+        <img src="./Model1.jpg" />
+
+        <li>
+            Dentro de Index.cshtml usaremos la sintaxis @model string, este @model string nos sirve
+            para espesificar el TIPO DE DATO del modelo que vas a recibir en la vista desde el controlador
+
+        </li>
+
+        <img src="Model2.jpg" />
+
+        <li>
+            @Model , es diferente, tiene una M mayuscula, este sirve paraacceder al VALOR del modelo, basicamente el @model string
+            tipa el dato que viene delcontrolador indicando que solo puedes recibir un string
+            , este @Model se usa paraacceder al dato del controlador desde la View
+        </li>
+        <img src="./Model3.jpg" />
+        <li> Si existe un error de tipado (envias un int envez de string)
+            SE LANZARA UN ERROR al copilar la pagina.
+        </li>
+        <img src="./Model4-error.jpg" width=600px"/>
+        
+    </ol>
+
+    <h3>Reibir 2 Datos desde un controlador y con diferentes tipados</h3>
+
+    <p>
+        para lograre sto utilizaremos una CLASE y utilizar dicha 
+        clase como el tipo de dato del modelo de la vista
+    </p>
+    <ol>
+        <li> 
+            Crea una nueva clase dentro de la carpeta Models
+        </li>
+        <img src="crear-clase-y-mandarla-ala-vista.jpg"/>
+        <li>Define las propiedades de tu  Clase con la siguiente
+             sintaxys
+        </li>
+        <img src="crear-clase-y-mandarla-ala-vista2.jpg" />
+        <li>
+            En el modelo (donde se tipa, @model)INGRESA LA CLASE (@model Persona)
+
+        </li>
+        <img src="crear-clase-y-mandarla-ala-vista3.jpg" />
+        <li>Listo, podras acceder en tu HTML atravez de @Model a las propiedades de esta clase,
+            las cuales ya vienen tipadas desde lamisma clase
+        </li>
+        <img src="crear-clase-y-mandarla-ala-vista4.jpg" />
+    </ol>
+
+</body>
+</html>
