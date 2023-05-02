@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link href="css.css"/>
     <style>
         *{
             --font: font-family: 'Roboto', sans-serif;
@@ -177,6 +178,67 @@
         </li>
         <img src="crear-clase-y-mandarla-ala-vista4.jpg" />
     </ol>
+
+    <h2>Vistas parciales</h2>
+    <p> Una vista parcial es la manera de ordenar nuestro codigo en componentes y luego
+        importarlos en elcomponente padre! asi dando ma sorden a las cosas y aplicando Modularidad!
+        (trabajar por modulos)
+    </p>
+    <ol>
+       <li>
+        Ejemplo: para separar tu codigo en primera debes crear una nueva Vista,esta vista por convecion
+        debe empezar con un _ y mayuscula!, en este caso creamos un nuevo archivo .cshtml
+        (osea una vista)
+
+       </li>
+        <img id="acomodoIMG" src="Vista-parcial.jpg" />
+
+        <li>
+            Pega todo el HTML que quieres Modular 
+        </li>
+        <img src="Vista-parcial2.jpg" />
+
+        <li>
+            Por ultimo, usaremos la etiqueta HTML partial y le pasaremos el atributo
+            name donde referenciaremos a la vista que queremos mandar a llamar!, y ya! eso es todo
+            estaremos importando en el componente padre esta informacion
+        </li>
+        <img src="Vista-parcial3.jpg" />
+        
+    </ol>
+
+    <h2>ENCAPSULAMIENTO DE C# del POO</h2>
+    <p>Encapsular es el proceso de encerrar 1 o mas elmentos
+        en un paquete fisico o logico, en POO te permite prevenir el acceso desde afuera!
+        para que no cambie el usuario algo de la logica
+    </p>
+    <p>
+        para esto usamos el uso de propiedades con get y set la cual se declaran de la siguiente manera: <strong>public int Alto {get; set;}</strong> 
+    </p>
+    <ol>
+        <li>Set: indica que esta propiedad puede ser seteada! osea,cambiada por el usuario</li>
+        <li>Get: indica que podemos obtener la variable desde afuera</li>
+    </ol>
+
+    <p>
+      otra sintaxis:  
+    </p>
+    <ol>
+        public int alto;
+        <br/>
+        public int Alto {
+            get{
+                return alto;
+            }
+            set{
+                alto = value;
+            }
+        }
+    </ol>
+    <p>
+        value: es el valor ingresado al programa!
+    </p>
+    
 
 </body>
 </html>
